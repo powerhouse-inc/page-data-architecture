@@ -5,7 +5,6 @@ import { addEndpoint } from "../../document-models/page-data-architecture/gen/cr
 import { EndpointCard } from "./components/EndpointCard.js";
 import { EmptyState } from "./components/EmptyState.js";
 import { DocumentToolbar } from "@powerhousedao/design-system/connect";
-import "./styles/editor.css";
 
 export default function Editor() {
   const [document, dispatch] = useSelectedPageDataArchitectureDocument();
