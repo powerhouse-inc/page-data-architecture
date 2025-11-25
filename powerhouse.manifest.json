@@ -1,0 +1,27 @@
+{
+    "name": "PageDataArchitecture",
+    "description": "Defines URL page endpoints with their associated GraphQL subgraphs and PostgreSQL processor tables for data architecture documentation.",
+    "category": "Engineering",
+    "publisher": {
+        "name": "Powerhouse",
+        "url": "https://powerhouse.inc/"
+    },
+    "documentModels": [
+        {
+            "id": "powerhouse/page-data-architecture",
+            "name": "PageDataArchitecture"
+        }
+    ],
+    "editors": [
+        {
+            "id": "page-data-architecture-editor",
+            "name": "PageDataArchitectureEditor",
+            "documentTypes": [
+                "powerhouse/page-data-architecture"
+            ]
+        }
+    ],
+    "apps": [],
+    "subgraphs": [],
+    "importScripts": []
+}
