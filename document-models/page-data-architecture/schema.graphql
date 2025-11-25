@@ -47,6 +47,7 @@ type Endpoint {
     title: String!
     urlPath: String!
     description: String
+    comments: String
     subgraphs: [Subgraph!]!
     processors: [Processor!]!
 }
@@ -64,6 +65,7 @@ input AddEndpointInput {
     title: String!
     urlPath: String!
     description: String
+    comments: String
 }
 
 input UpdateEndpointInput {
@@ -71,6 +73,7 @@ input UpdateEndpointInput {
     title: String
     urlPath: String
     description: String
+    comments: String
 }
 
 input DeleteEndpointInput {

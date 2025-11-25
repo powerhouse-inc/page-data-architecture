@@ -69,6 +69,7 @@ export type AddColumnInput = {
 };
 
 export type AddEndpointInput = {
+  comments?: InputMaybe<Scalars["String"]["input"]>;
   description?: InputMaybe<Scalars["String"]["input"]>;
   id: Scalars["OID"]["input"];
   title: Scalars["String"]["input"];
@@ -113,6 +114,7 @@ export type DeleteSubgraphInput = {
 };
 
 export type Endpoint = {
+  comments: Maybe<Scalars["String"]["output"]>;
   description: Maybe<Scalars["String"]["output"]>;
   id: Scalars["OID"]["output"];
   processors: Array<Processor>;
@@ -177,6 +179,7 @@ export type UpdateColumnInput = {
 };
 
 export type UpdateEndpointInput = {
+  comments?: InputMaybe<Scalars["String"]["input"]>;
   description?: InputMaybe<Scalars["String"]["input"]>;
   id: Scalars["OID"]["input"];
   title?: InputMaybe<Scalars["String"]["input"]>;

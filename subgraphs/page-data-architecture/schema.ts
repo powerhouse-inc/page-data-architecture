@@ -100,12 +100,14 @@ export const schema: DocumentNode = gql`
     title: String!
     urlPath: String!
     description: String
+    comments: String
   }
   input PageDataArchitecture_UpdateEndpointInput {
     id: OID!
     title: String
     urlPath: String
     description: String
+    comments: String
   }
   input PageDataArchitecture_DeleteEndpointInput {
     id: OID!

@@ -26,9 +26,9 @@ export const documentModel: DocumentModelGlobalState = {
               id: "add-endpoint-op",
               name: "ADD_ENDPOINT",
               reducer:
-                "state.endpoints.push({\n    id: action.input.id,\n    title: action.input.title,\n    urlPath: action.input.urlPath,\n    description: action.input.description || null,\n    subgraphs: [],\n    processors: []\n});",
+                "state.endpoints.push({\n    id: action.input.id,\n    title: action.input.title,\n    urlPath: action.input.urlPath,\n    description: action.input.description || null,\n    comments: action.input.comments || null,\n    subgraphs: [],\n    processors: []\n});",
               schema:
-                "input AddEndpointInput {\n    id: OID!\n    title: String!\n    urlPath: String!\n    description: String\n}",
+                "input AddEndpointInput {\n    id: OID!\n    title: String!\n    urlPath: String!\n    description: String\n    comments: String\n}",
               scope: "global",
               template: "Create a new URL page endpoint",
             },
@@ -48,9 +48,9 @@ export const documentModel: DocumentModelGlobalState = {
               id: "update-endpoint-op",
               name: "UPDATE_ENDPOINT",
               reducer:
-                "const endpoint = state.endpoints.find(e => e.id === action.input.id);\nif (!endpoint) {\n    throw new EndpointNotFoundError(`Endpoint with ID ${action.input.id} not found`);\n}\nif (action.input.title) endpoint.title = action.input.title;\nif (action.input.urlPath) endpoint.urlPath = action.input.urlPath;\nif (action.input.description !== undefined && action.input.description !== null) endpoint.description = action.input.description;",
+                "const endpoint = state.endpoints.find(e => e.id === action.input.id);\nif (!endpoint) {\n    throw new EndpointNotFoundError(`Endpoint with ID ${action.input.id} not found`);\n}\nif (action.input.title) endpoint.title = action.input.title;\nif (action.input.urlPath) endpoint.urlPath = action.input.urlPath;\nif (action.input.description !== undefined && action.input.description !== null) endpoint.description = action.input.description;\nif (action.input.comments !== undefined && action.input.comments !== null) endpoint.comments = action.input.comments;",
               schema:
-                "input UpdateEndpointInput {\n    id: OID!\n    title: String\n    urlPath: String\n    description: String\n}",
+                "input UpdateEndpointInput {\n    id: OID!\n    title: String\n    urlPath: String\n    description: String\n    comments: String\n}",
               scope: "global",
               template:
                 "Update an existing endpoint title, URL path, or description",
@@ -423,7 +423,7 @@ export const documentModel: DocumentModelGlobalState = {
           examples: [],
           initialValue: '"{\\n    \\"endpoints\\": []\\n}"',
           schema:
-            "type PostgresColumn {\n    id: OID!\n    name: String!\n    dataType: String!\n    isPrimaryKey: Boolean!\n    isNullable: Boolean!\n    defaultValue: String\n    references: String\n}\n\ntype Processor {\n    id: OID!\n    name: String!\n    description: String\n    tableName: String!\n    columns: [PostgresColumn!]!\n}\n\ntype Subgraph {\n    id: OID!\n    name: String!\n    description: String\n    graphqlSchema: String!\n    graphqlQuery: String!\n    processorIds: [OID!]!\n}\n\ntype Endpoint {\n    id: OID!\n    title: String!\n    urlPath: String!\n    description: String\n    subgraphs: [Subgraph!]!\n    processors: [Processor!]!\n}\n\ntype PageDataArchitectureState {\n    endpoints: [Endpoint!]!\n}",
+            "type PostgresColumn {\n    id: OID!\n    name: String!\n    dataType: String!\n    isPrimaryKey: Boolean!\n    isNullable: Boolean!\n    defaultValue: String\n    references: String\n}\n\ntype Processor {\n    id: OID!\n    name: String!\n    description: String\n    tableName: String!\n    columns: [PostgresColumn!]!\n}\n\ntype Subgraph {\n    id: OID!\n    name: String!\n    description: String\n    graphqlSchema: String!\n    graphqlQuery: String!\n    processorIds: [OID!]!\n}\n\ntype Endpoint {\n    id: OID!\n    title: String!\n    urlPath: String!\n    description: String\n    comments: String\n    subgraphs: [Subgraph!]!\n    processors: [Processor!]!\n}\n\ntype PageDataArchitectureState {\n    endpoints: [Endpoint!]!\n}",
         },
         local: {
           examples: [],

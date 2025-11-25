@@ -317,10 +317,87 @@
   border-radius: var(--pda-radius-sm);
 }
 
+.pda-endpoint-url-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pda-endpoint-url-link:hover {
+  background: var(--pda-accent-cyan);
+  color: var(--pda-bg-primary);
+  box-shadow: 0 0 12px var(--pda-accent-cyan-dim);
+}
+
+.pda-endpoint-url-link::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+.pda-endpoint-url-link:hover::after {
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
 .pda-endpoint-desc {
   font-size: 0.875rem;
   color: var(--pda-text-secondary);
   margin: 10px 0 0 0;
+}
+
+.pda-endpoint-comments {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--pda-bg-tertiary);
+  border: 1px solid var(--pda-border);
+  border-radius: var(--pda-radius-sm);
+  font-size: 0.8rem;
+  color: var(--pda-text-secondary);
+  line-height: 1.5;
+}
+
+.pda-endpoint-comments svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--pda-text-muted);
+}
+
+.pda-endpoint-comments span {
+  white-space: pre-wrap;
+}
+
+.pda-input-comments {
+  font-family: var(--pda-font-sans);
+  font-size: 0.875rem;
+  padding: 10px 14px;
+  background: var(--pda-bg-primary);
+  border: 1px solid var(--pda-border);
+  border-radius: var(--pda-radius-sm);
+  color: var(--pda-text-primary);
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+.pda-input-comments:focus {
+  outline: none;
+  border-color: var(--pda-accent-cyan);
+}
+
+.pda-input-comments::placeholder {
+  color: var(--pda-text-muted);
 }
 
 .pda-endpoint-actions {

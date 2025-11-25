@@ -39,6 +39,7 @@ export function EndpointCard({
     title: endpoint.title,
     urlPath: endpoint.urlPath,
     description: endpoint.description ?? "",
+    comments: endpoint.comments ?? "",
   });
   const [activeTab, setActiveTab] = useState<"subgraphs" | "processors">(
     "subgraphs",
@@ -64,6 +65,7 @@ export function EndpointCard({
         title: editForm.title,
         urlPath: editForm.urlPath,
         description: editForm.description || undefined,
+        comments: editForm.comments || undefined,
       }),
     );
     setIsEditing(false);
@@ -179,6 +181,15 @@ export function EndpointCard({
               }
               placeholder="/path"
             />
+            <textarea
+              className="pda-input-comments"
+              value={editForm.comments}
+              onChange={(e) =>
+                setEditForm({ ...editForm, comments: e.target.value })
+              }
+              placeholder="Add comments about this endpoint..."
+              rows={3}
+            />
             <div className="pda-endpoint-edit-actions">
               <button
                 className="pda-btn pda-btn-sm pda-btn-secondary"
@@ -198,9 +209,31 @@ export function EndpointCard({
           <>
             <div className="pda-endpoint-info">
               <h3 className="pda-endpoint-title">{endpoint.title}</h3>
-              <code className="pda-endpoint-url">{endpoint.urlPath}</code>
+              <a
+                href={endpoint.urlPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pda-endpoint-url pda-endpoint-url-link"
+              >
+                {endpoint.urlPath}
+              </a>
               {endpoint.description && (
                 <p className="pda-endpoint-desc">{endpoint.description}</p>
+              )}
+              {endpoint.comments && (
+                <div className="pda-endpoint-comments">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  <span>{endpoint.comments}</span>
+                </div>
               )}
             </div>
             <div className="pda-endpoint-actions">

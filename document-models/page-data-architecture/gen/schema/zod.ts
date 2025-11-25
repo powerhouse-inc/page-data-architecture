@@ -54,6 +54,7 @@ export function AddEndpointInputSchema(): z.ZodObject<
   Properties<AddEndpointInput>
 > {
   return z.object({
+    comments: z.string().nullish(),
     description: z.string().nullish(),
     id: z.string(),
     title: z.string(),
@@ -125,6 +126,7 @@ export function DeleteSubgraphInputSchema(): z.ZodObject<
 export function EndpointSchema(): z.ZodObject<Properties<Endpoint>> {
   return z.object({
     __typename: z.literal("Endpoint").optional(),
+    comments: z.string().nullable(),
     description: z.string().nullable(),
     id: z.string(),
     processors: z.array(ProcessorSchema()),
@@ -221,6 +223,7 @@ export function UpdateEndpointInputSchema(): z.ZodObject<
   Properties<UpdateEndpointInput>
 > {
   return z.object({
+    comments: z.string().nullish(),
     description: z.string().nullish(),
     id: z.string(),
     title: z.string().nullish(),
