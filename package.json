@@ -59,6 +59,7 @@
     "service-unstartup": "bash ./node_modules/@powerhousedao/ph-cli/dist/scripts/service-unstartup.sh"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.4",
     "@codemirror/lang-json": "^6.0.2",
     "@codemirror/lint": "^6.9.2",
     "@powerhousedao/builder-tools": "latest",

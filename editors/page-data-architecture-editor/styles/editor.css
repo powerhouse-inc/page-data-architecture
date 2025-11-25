@@ -1134,6 +1134,113 @@
   color: var(--pda-accent-cyan);
 }
 
+/* Migration Code Editor */
+.pda-migration-editor {
+  margin-top: 20px;
+  border: 1px solid var(--pda-border);
+  border-radius: var(--pda-radius-sm);
+  overflow: hidden;
+  background: var(--pda-bg-secondary);
+}
+
+.pda-migration-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(234, 88, 12, 0.08) 100%);
+  border-bottom: 1px solid var(--pda-border);
+}
+
+.pda-migration-editor-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ff6b35;
+}
+
+.pda-migration-editor-title svg {
+  color: #ff6b35;
+  opacity: 0.8;
+}
+
+.pda-migration-filename {
+  font-family: var(--pda-font-mono);
+  font-size: 0.75rem;
+  color: var(--pda-text-muted);
+  background: var(--pda-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--pda-radius-sm);
+}
+
+.pda-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-family: var(--pda-font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--pda-bg-tertiary);
+  border: 1px solid var(--pda-border);
+  border-radius: var(--pda-radius-sm);
+  color: var(--pda-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pda-copy-btn:hover {
+  background: var(--pda-bg-card);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.pda-copy-btn svg {
+  opacity: 0.7;
+}
+
+.pda-copy-btn:hover svg {
+  opacity: 1;
+}
+
+.pda-copy-btn-copied {
+  background: rgba(57, 211, 83, 0.15);
+  border-color: var(--pda-accent-green);
+  color: var(--pda-accent-green);
+}
+
+.pda-copy-btn-copied svg {
+  opacity: 1;
+}
+
+.pda-migration-editor .cm-editor {
+  background: var(--pda-bg-primary);
+}
+
+.pda-migration-editor .cm-focused {
+  outline: none;
+}
+
+/* Light theme adjustments for migration editor */
+.pda-editor.pda-theme-light .pda-migration-editor-header {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.12) 0%, rgba(234, 88, 12, 0.05) 100%);
+}
+
+.pda-editor.pda-theme-light .pda-migration-editor-title {
+  color: #ea580c;
+}
+
+.pda-editor.pda-theme-light .pda-migration-editor-title svg {
+  color: #ea580c;
+}
+
+.pda-editor.pda-theme-light .pda-copy-btn:hover {
+  border-color: #ea580c;
+  color: #ea580c;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .pda-endpoints-grid {

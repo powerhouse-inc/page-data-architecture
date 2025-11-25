@@ -10,6 +10,7 @@ import {
   addColumn,
 } from "../../../document-models/page-data-architecture/gen/processor/creators.js";
 import { ColumnEditor } from "./ColumnEditor.js";
+import { MigrationCodeEditor } from "./MigrationCodeEditor.js";
 
 interface ProcessorTableProps {
   processor: Processor;
@@ -397,6 +398,12 @@ export function ProcessorTable({
                   </button>
                 )}
               </div>
+
+              <MigrationCodeEditor
+                tableName={processor.tableName}
+                columns={processor.columns}
+                height="280px"
+              />
             </>
           )}
         </div>
